@@ -17,12 +17,19 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
-            $table->integer('total_amount')->index();;
-            $table->string('status')->index();;
-            $table->string('payment_method')->index();;
-            $table->string('order_date')->index();;
-            $table->string('delivery_address')->index();;
+            $table->integer('total_amount');
+            $table->string('status');
+            $table->string('payment_method');
+            $table->string('order_date');
+            $table->string('delivery_address');
             $table->timestamps();
+
+            //Indexes
+            $table->index(['restaurant_id','user_id', 'total_amount']);
+            $table->index(['restaurant_id','user_id', 'status']);
+            $table->index(['restaurant_id','user_id', 'payment_method']);
+            $table->index(['restaurant_id','user_id', 'order_date']);
+            $table->index(['restaurant_id','user_id', 'delivery_address']);
         });
     }
 

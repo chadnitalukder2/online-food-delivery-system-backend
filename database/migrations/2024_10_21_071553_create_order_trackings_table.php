@@ -15,10 +15,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->string('current_status')->index();
+            $table->string('current_status');
             $table->string('status_update_time');
-            $table->string('estimated_delivery_time')->index();
+            $table->string('estimated_delivery_time');
             $table->timestamps();
+
+            //Indexes
+            $table->index(['order_id', 'current_status']);
+            $table->index(['order_id', 'estimated_delivery_time']);
         });
     }
 

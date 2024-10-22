@@ -15,12 +15,17 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('restaurant_id');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
-            $table->string('name')->index();
+            $table->string('name');
             $table->text('description');
-            $table->string('price')->index();
+            $table->string('price');
             $table->string('image');
             $table->string('availability');
             $table->timestamps();
+
+            //Indexes
+            $table->index(['restaurant_id', 'name']);
+            $table->index(['availability']);
+            $table->index(['restaurant_id', 'price']);
         });
     }
 

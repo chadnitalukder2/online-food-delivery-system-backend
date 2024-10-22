@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('estimated_time')->index();
             $table->string('status')->index();
             $table->timestamps();
+
+             //Indexes
+             $table->index(['order_id', 'estimated_time']);
+             $table->index(['order_id', 'status']);
         });
     }
 

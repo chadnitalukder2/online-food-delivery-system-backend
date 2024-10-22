@@ -15,10 +15,16 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->integer('amount')->index();
-            $table->string('payment_method')->index();
-            $table->string('status')->index();
+            $table->integer('amount');
+            $table->string('payment_method');
+            $table->string('status');
             $table->timestamps();
+
+             //Indexes
+             $table->index(['order_id', 'amount']);
+             $table->index(['order_id', 'payment_method']);
+             $table->index(['order_id', 'status']);
+
         });
     }
 

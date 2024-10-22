@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('vehicle_type');
             $table->string('availability');
             $table->timestamps();
+
+             //Indexes
+             $table->index([ 'availability']);
         });
     }
 

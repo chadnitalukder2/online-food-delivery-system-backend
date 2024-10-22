@@ -18,8 +18,11 @@ return new class extends Migration
             $table->unsignedBigInteger('menu_id');
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
             $table->integer('quantity');
-            $table->integer('price')->index();
+            $table->integer('price');
             $table->timestamps();
+
+            //Indexes
+            $table->index(['order_id','menu_id', 'price']);
         });
     }
 
