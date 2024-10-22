@@ -17,11 +17,13 @@ class DeliveryPersonnelFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),   // Generate a random name
-            'phone' => $this->faker->phoneNumber(), // Generate a random phone number
-            'email' => $this->faker->unique()->safeEmail(), // Generate a unique random email
-            'vehicle_type' => $this->faker->randomElement(['car', 'bike', 'van', 'truck']), // Random vehicle type
+            'name' => $this->faker->name(),
+            'phone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'vehicle_type' => $this->faker->randomElement(['car', 'bike', 'van', 'truck']),
             'availability' => $this->faker->randomElement(['available', 'unavailable']),
+            'created_at' => now(), 
+            'updated_at' => now(),
         ];
     }
 }

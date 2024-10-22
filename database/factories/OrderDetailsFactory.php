@@ -19,10 +19,12 @@ class OrderDetailsFactory extends Factory
     public function definition(): array
     {
         return [
-            'order_id' => Order::factory(),          // Creates or references an Order
-            'menu_id' => Menu::factory(),            // Creates or references a Menu item
-            'quantity' => $this->faker->numberBetween(1, 10), // Random quantity between 1 and 10
+            'order_id' => Order::factory(),        
+            'menu_id' => Menu::factory(),            
+            'quantity' => $this->faker->numberBetween(1, 10), 
             'price' => $this->faker->numberBetween(100, 1000),
+            'created_at' => now(), 
+            'updated_at' => now(),
         ];
     }
 }

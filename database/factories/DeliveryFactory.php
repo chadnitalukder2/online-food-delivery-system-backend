@@ -19,10 +19,12 @@ class DeliveryFactory extends Factory
     public function definition(): array
     {
         return [
-            'order_id' => Order::factory(),  // Create or reference an Order
-            'delivery_personnel_id' => DeliveryPersonnel::factory(),  // Create or reference Delivery Personnel
-            'estimated_time' => $this->faker->time('H:i'),  // Generate a random time in HH:MM format
+            'order_id' => Order::factory(),
+            'delivery_personnel_id' => DeliveryPersonnel::factory(), 
+            'estimated_time' => $this->faker->time('H:i'),
             'status' => $this->faker->randomElement(['pending', 'on the way', 'delivered', 'failed']),
+            'created_at' => now(), 
+            'updated_at' => now(),
         ];
     }
 }

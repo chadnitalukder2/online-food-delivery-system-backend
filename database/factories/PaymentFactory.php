@@ -18,10 +18,12 @@ class PaymentFactory extends Factory
     public function definition(): array
     {
         return [
-            'order_id' => Order::factory(),  // Creates or references an Order
-            'amount' => $this->faker->numberBetween(100, 10000), // Random amount between 100 and 10,000
-            'payment_method' => $this->faker->randomElement(['credit card', 'cash', 'paypal', 'bank transfer']), // Random payment method
+            'order_id' => Order::factory(),  
+            'amount' => $this->faker->numberBetween(100, 10000), 
+            'payment_method' => $this->faker->randomElement(['credit card', 'cash', 'paypal', 'bank transfer']), 
             'status' => $this->faker->randomElement(['pending', 'completed', 'failed']),
+            'created_at' => now(), 
+            'updated_at' => now(),
         ];
     }
 }
