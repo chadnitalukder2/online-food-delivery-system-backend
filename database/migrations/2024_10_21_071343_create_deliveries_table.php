@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('delivery', function (Blueprint $table) {
+        Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->unsignedBigInteger('delivery_person_id');
-            $table->foreign('delivery_person_id')->references('id')->on('delivery_personnel')->onDelete('cascade');
+            $table->unsignedBigInteger('delivery_personnel_id');
+            $table->foreign('delivery_personnel_id')->references('id')->on('delivery_personnels')->onDelete('cascade');
             $table->string('estimated_time')->index();
             $table->string('status')->index();
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('delivery');
+        Schema::dropIfExists('deliveries');
     }
 };
