@@ -26,24 +26,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-        // Restaurant::factory(10)->create();
-        // Menu::factory(50)->create();
-        // Order::factory(30)->create();
-        // OrderDetails::factory(40)->create();
-        // Payment::factory(30)->create();
-        // DeliveryPersonnel::factory(20)->create();
-        // Delivery::factory(50)->create();
-        // Review::factory(50)->create();
-        // Category::factory(10)->create();
-        // Discount::factory(10)->create();
-        // Wishlist::factory(10)->create();
-        // OrderTracking::factory(10)->create();
+        User::factory(10)->create();
+        Restaurant::factory(10)->create();
+        Menu::factory(50)->create();
+        Order::factory(30)->create();
+        OrderDetails::factory(40)->create();
+        Payment::factory(30)->create();
+        DeliveryPersonnel::factory(20)->create();
+        Delivery::factory(50)->create();
+        Review::factory(50)->create();
+        Category::factory(10)->create();
+        Discount::factory(10)->create();
+        Wishlist::factory(10)->create();
+        OrderTracking::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
 
         
         
