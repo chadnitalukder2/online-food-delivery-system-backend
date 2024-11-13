@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\Restaurant;
-class RestaurantService
+class restaurantService
 {
     public function getFilteredRestaurant(array $filters, $perPage = 10)
     {
@@ -19,5 +19,9 @@ class RestaurantService
 
         return $query->get();
 
+    }
+
+    public function getRestaurantById($id){
+        return Restaurant::findOrFail($id);
     }
 }
