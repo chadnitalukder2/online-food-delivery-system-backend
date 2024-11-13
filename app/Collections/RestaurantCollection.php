@@ -14,11 +14,8 @@ class RestaurantCollection extends Collection
     {
         return [
             'Restaurants' => $this->collection,
-            'menu_meta' => [    
-                // 'total' => $this->total(),
+            'menu_meta' => [
                 'count' => $this->count(),
-                // 'current_page' => $this->currentPage(),
-                // 'last_page' => $this->lastPage(),
             ]
         ];
     }
