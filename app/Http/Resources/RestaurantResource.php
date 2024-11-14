@@ -20,6 +20,7 @@ class RestaurantResource extends JsonResource
             'phone' => $this->phone,
             'email ' => $this->email,
             'address' => $this->address,
+            'image' => $this->image,
             'description' => $this->description,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),

@@ -22,6 +22,7 @@ class RestaurantFactory extends Factory
             'phone' => $this->faker->phoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
             'description' => $this->faker->sentence(10),
+            'image' => $this->faker->imageUrl(640, 480, 'logo'), 
             'created_at' => now(), 
             'updated_at' => now(),
         ];

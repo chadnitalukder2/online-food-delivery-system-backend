@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Restaurant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,6 +20,7 @@ class MenuFactory extends Factory
     {
         return [
             'restaurant_id' => Restaurant::factory(),
+            'category_id' => Category::factory(),
             'name' => $this->faker->word(),
             'description' => $this->faker->sentence(10),
             'price' => $this->faker->randomFloat(2, 10, 100),
