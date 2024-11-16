@@ -23,6 +23,7 @@ class restaurantService
 
     public function getRestaurantById($id){
         return Restaurant::findOrFail($id);
+
     }
 
     public function createRestaurant(array $data){

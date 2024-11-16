@@ -26,6 +26,7 @@ class RestaurantController extends Controller
     }
 
     public function show($id){
+        
         $restaurants = $this->restaurantService->getRestaurantById($id);
          return new RestaurantResource($restaurants);
     }
