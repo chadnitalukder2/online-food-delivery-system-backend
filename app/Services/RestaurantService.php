@@ -37,4 +37,11 @@ class restaurantService
         return $restaurant;
     }
 
+    // Delete a menu
+    public function deleteRestaurant(Restaurant $restaurant)
+    {
+        $restaurant->delete();
+    }
+
+
 }

@@ -18,26 +18,28 @@ class RestaurantController extends Controller
         $this->restaurantService = new restaurantService();
     }
 
-
-    public function index(Request $request){
-       $filters =$request->only('name', 'address');
-       $restaurants = $this->restaurantService->getFilteredRestaurant($filters);
-       return new RestaurantCollection($restaurants);
+    //get all
+    public function index(Request $request)
+    {
+        $filters = $request->only('name', 'address');
+        $restaurants = $this->restaurantService->getFilteredRestaurant($filters);
+        return new RestaurantCollection($restaurants);
     }
+    //show
+    public function show($id)
+    {
 
-    public function show($id){
-        
         $restaurants = $this->restaurantService->getRestaurantById($id);
-         return new RestaurantResource($restaurants);
+        return new RestaurantResource($restaurants);
     }
-
+    //store
     public function store(RestaurantRequest $request)
     {
         $restaurant = $this->restaurantService->createRestaurant($request->validated());
         return new RestaurantResource($restaurant);
     }
 
-    // Update an existing menu
+    // Update an existing
     public function update(RestaurantRequest $request, $id)
     {
         $restaurant = $this->restaurantService->getRestaurantById($id);
@@ -45,4 +47,11 @@ class RestaurantController extends Controller
         return new RestaurantResource($updatedRestaurant);
     }
 
+    // Delete 
+    public function destroy($id)
+    {
+        $restaurant = $this->restaurantService->getRestaurantById($id);
+        $this->restaurantService->deleteRestaurant($restaurant);
+        return response()->json(null, 204);
+    }
 }

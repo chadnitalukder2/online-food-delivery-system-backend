@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class MenuController extends Controller
 {
     public function index(){
+        dd('hello');
         return 'hello menu';
      }
 }
