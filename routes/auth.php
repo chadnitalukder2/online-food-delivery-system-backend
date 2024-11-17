@@ -36,6 +36,6 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');
 
-    Route::post('/nitesh', function() {
-        return "Hello";
+    Route::get('/nitesh', function() {
+        return "Hello nitesh";
     });
