@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collections\CategoriesCollection;
+use App\Http\Resources\CategoriesResource;
 use App\Services\CategoriesService;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,10 @@ class CategoryController extends Controller
     {
         $categories = $this->CategoriesService->getCategories();
         return new CategoriesCollection($categories);
+    }
+    public function show($id){
+        $categories = $this->CategoriesService->getCategoryById($id);
+        return new CategoriesResource($categories);
     }
 
 }

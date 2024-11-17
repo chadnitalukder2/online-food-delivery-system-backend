@@ -13,7 +13,7 @@ class CategoriesService
         return $query->get();
 
     }
-    public function getRestaurantById($id){
+    public function getCategoryById($id){
         return Category::findOrFail($id);
 
     }
