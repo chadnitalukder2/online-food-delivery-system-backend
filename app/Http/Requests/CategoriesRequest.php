@@ -11,7 +11,7 @@ class CategoriesRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -19,10 +19,19 @@ class CategoriesRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
-        return [
-            //
+        // Common rules for both store and update
+        $rules = [
+            'name' => 'sometimes|string|max:255',  // Optional for update
+            'description' => 'nullable|string',
         ];
+
+        // Adjust required rules for POST (store operation)
+        if ($this->isMethod('POST')) {
+            $rules['name'] = 'required|string|max:255';
+        }
+        
+        return $rules;
     }
 }

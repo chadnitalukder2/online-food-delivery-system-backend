@@ -18,7 +18,7 @@ class CategoriesService
 
     }
 
-    public function createRestaurant(array $data){
+    public function createCategory(array $data){
         return Category::create($data);
 
     }
