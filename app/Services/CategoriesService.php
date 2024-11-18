@@ -23,10 +23,10 @@ class CategoriesService
 
     }
 
-    public function updatedRestaurant(Category $restaurant, array $data)
+    public function updatedCategories(Category $category, array $data)
     {
-        $restaurant->update($data);
-        return $restaurant;
+        $category->update($data);
+        return $category;
     }
 
     // Delete a menu

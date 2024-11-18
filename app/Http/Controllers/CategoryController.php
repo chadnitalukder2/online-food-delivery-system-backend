@@ -32,4 +32,19 @@ class CategoryController extends Controller
         return new CategoriesResource($categories);
     }
 
+    public function update(CategoriesRequest $request, $id)
+    {
+        $categories = $this->CategoriesService->getCategoryById($id);
+        $updatedCategories = $this->CategoriesService->updatedCategories($categories, $request->validated());
+        return new CategoriesResource($updatedCategories);
+    }
+
+    // Delete 
+    public function destroy($id)
+    {
+        // $restaurant = $this->restaurantService->getRestaurantById($id);
+        // $this->restaurantService->deleteRestaurant($restaurant);
+        // return response()->json(null, 204);
+    }
+
 }
