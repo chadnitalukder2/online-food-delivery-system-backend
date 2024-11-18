@@ -28,6 +28,10 @@ class MenusService
       return $query->get();
   }
 
+  public function getMenuById($id){
+    return Menu::findOrFail($id);
+  }
+
 
 
 
