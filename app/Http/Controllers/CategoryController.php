@@ -42,9 +42,9 @@ class CategoryController extends Controller
     // Delete 
     public function destroy($id)
     {
-        // $restaurant = $this->restaurantService->getRestaurantById($id);
-        // $this->restaurantService->deleteRestaurant($restaurant);
-        // return response()->json(null, 204);
+        $categories = $this->CategoriesService->getCategoryById($id);
+        $this->CategoriesService->deleteCategory($categories);
+        return response()->json(null, 204);
     }
 
 }

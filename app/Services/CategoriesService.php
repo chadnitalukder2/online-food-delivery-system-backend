@@ -30,9 +30,9 @@ class CategoriesService
     }
 
     // Delete a menu
-    public function deleteRestaurant(Category $restaurant)
+    public function deleteCategory(Category $category)
     {
-        $restaurant->delete();
+        $category->delete();
     }
 
 
