@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Http\Request;
@@ -10,11 +11,9 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::apiResource('restaurants', RestaurantController::class);
+Route::apiResource('restaurants', RestaurantController::class);
+Route::apiResource('categories', CategoryController::class);
 
-Route::apiResource('menus', MenuController::class);
 
-Route::get('restaurantsdd', function(){
-    return 'Hello';
-});
+
 
