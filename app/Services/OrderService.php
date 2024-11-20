@@ -36,7 +36,7 @@ class OrderService
         return Order::findOrFail($id);
     }
 
-    public function createMenu(array $data)
+    public function createOrder(array $data)
     {
         return Order::create($data);
     }

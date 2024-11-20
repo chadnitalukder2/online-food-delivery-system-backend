@@ -26,6 +26,7 @@ class OrdersResource extends JsonResource
             'order_date' => $this->order_date,
             'delivery_address' => $this->delivery_address,
             'restaurant_name' => $this->restaurant->name,
+            'menu_name' => $this->menu->name,
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
         ];

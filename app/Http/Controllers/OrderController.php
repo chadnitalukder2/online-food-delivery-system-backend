@@ -29,7 +29,14 @@ class OrderController extends Controller
         if (!$order) {
             return response()->json(['message' => 'Order not found'], 404);
         }
-        // return response()->json($order, 200);
         return new OrdersResource($order);
     }
+
+    public function store(OrdersRequest $request)
+    {
+        $order = $this->OrderService->createOrder($request->validated());
+        return new OrdersResource($order);
+    }
+    
+
 }
