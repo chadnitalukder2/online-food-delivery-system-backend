@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collections\PaymentsCollection;
+use App\Http\Requests\PaymentsRequest;
 use App\Http\Resources\PaymentsResource;
 use App\Services\PaymentService;
 use Illuminate\Http\Request;
@@ -24,4 +25,15 @@ class PaymentController extends Controller
         $payment = $this->PaymentService->getPaymentById($id);
         return new PaymentsResource($payment);
     }
+
+    public function store(PaymentsRequest $request)
+    {
+        $payment = $this->PaymentService->createPayment($request->validated());
+        return new PaymentsResource($payment);
+    }
+
+    
+
+
+
 }

@@ -32,9 +32,9 @@ class PaymentService
         return Payment::findOrFail($id);
     }
 
-    public function createMenu(array $data)
+    public function createPayment(array $data)
     {
-        return Menu::create($data);
+        return Payment::create($data);
     }
 
     public function updateMenu(Menu $menu, array $data)
