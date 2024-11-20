@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collections\PaymentsCollection;
+use App\Http\Resources\PaymentsResource;
 use App\Services\PaymentService;
 use Illuminate\Http\Request;
 
@@ -17,5 +18,10 @@ class PaymentController extends Controller
         $filters = $request->only(['amount', 'payment_method', 'status']);
         $payment = $this->PaymentService->getFilteredPayment($filters);
         return new PaymentsCollection($payment);
+    }
+
+    public function show($id){
+        $payment = $this->PaymentService->getPaymentById($id);
+        return new PaymentsResource($payment);
     }
 }

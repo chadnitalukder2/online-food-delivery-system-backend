@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Category;
 use App\Models\Menu;
 use App\Models\Payment;
 use GuzzleHttp\Psr7\Request;
@@ -28,9 +27,9 @@ class PaymentService
         return $query->get();
     }
 
-    public function getMenuById($id)
+    public function getPaymentById($id)
     {
-        return Menu::findOrFail($id);
+        return Payment::findOrFail($id);
     }
 
     public function createMenu(array $data)
