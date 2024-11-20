@@ -32,7 +32,11 @@ class PaymentController extends Controller
         return new PaymentsResource($payment);
     }
 
-    
+    public function update(PaymentsRequest $request, $id){
+        $payment = $this->PaymentService->getPaymentById($id);
+        $updatedPayment = $this->PaymentService->updatePayment($payment, $request->validated());
+        return new PaymentsResource($updatedPayment);
+    }
 
 
 

@@ -37,14 +37,14 @@ class PaymentService
         return Payment::create($data);
     }
 
-    public function updateMenu(Menu $menu, array $data)
+    public function updatePayment(Payment $payment, array $data)
     {
-        $menu->update($data);
-        return $menu;
+        $payment->update($data);
+        return $payment;
     }
 
-    public function deleteMenu(Menu $menu)
+    public function deleteMenu(Payment $payment)
     {
-        $menu->delete();
+        $payment->delete();
     }
 }
