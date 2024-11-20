@@ -45,6 +45,14 @@ class MenuController extends Controller
         return new MenusResource($updatedMenu);
     }
 
+    public function destroy($id)
+    {
+        $menu = $this->menuService->getMenuById($id);
+        $this->menuService->deleteMenu($menu);
+        return response()->json(null, 204);
+    }
+
+
   
 
 

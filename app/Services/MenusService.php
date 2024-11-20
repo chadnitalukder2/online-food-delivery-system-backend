@@ -43,4 +43,9 @@ class MenusService
         $menu->update($data);
         return $menu;
     }
+
+    public function deleteMenu(Menu $menu)
+    {
+        $menu->delete();
+    }
 }
