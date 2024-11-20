@@ -25,6 +25,7 @@ class OrdersRequest extends FormRequest
         $rules = [
             'user_id' => 'sometimes|exists:users,id', 
             'restaurant_id' => 'sometimes|exists:restaurants,id',
+            'menu_id' => 'sometimes|exists:menus,id',
             'total_amount' => 'sometimes|numeric|min:0',
             'status' => 'nullable|string|in:pending,completed,canceled',
             'payment_method' => 'sometimes|in:cash,card,paypal',
