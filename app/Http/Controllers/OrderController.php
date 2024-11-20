@@ -40,9 +40,15 @@ class OrderController extends Controller
 
     public function update(OrdersRequest $request, $id)
     {
-        $menu = $this->OrderService->getOrderById($id);
-        $updatedOrder = $this->OrderService->updateOrder($menu, $request->validated());
+        $order = $this->OrderService->getOrderById($id);
+        $updatedOrder = $this->OrderService->updateOrder($order, $request->validated());
         return new OrdersResource($updatedOrder);
+    }
+
+    public function destroy($id){
+        $order = $this->OrderService->getOrderById($id);
+        $this->OrderService->deleteOrder($order);
+        return response()->json(null, 204);
     }
 
 }

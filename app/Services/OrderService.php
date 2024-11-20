@@ -46,4 +46,9 @@ class OrderService
         $menu->update($data);
         return $menu;
     }
+
+    public function deleteOrder(Order $order)
+    {
+        $order->delete();
+    }
 }
