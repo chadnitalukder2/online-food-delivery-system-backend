@@ -4,12 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Delivery;
-use App\Models\DeliveryPerson;
 use App\Models\DeliveryPersonnel;
 use App\Models\Discount;
 use App\Models\Menu;
 use App\Models\Order;
-use App\Models\OrderDetails;
 use App\Models\OrderTracking;
 use App\Models\Payment;
 use App\Models\Restaurant;
@@ -30,7 +28,6 @@ class DatabaseSeeder extends Seeder
         Restaurant::factory(10)->create();
         Menu::factory(50)->create();
         Order::factory(30)->create();
-        OrderDetails::factory(40)->create();
         Payment::factory(30)->create();
         DeliveryPersonnel::factory(20)->create();
         Delivery::factory(50)->create();

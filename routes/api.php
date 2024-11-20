@@ -15,3 +15,6 @@ Route::apiResource('restaurants', RestaurantController::class);
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('menus', MenuController::class);
 Route::apiResource('orders', OrderController::class);
+Route::apiResource('payments', OrderController::class);
+
+
