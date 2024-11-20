@@ -41,7 +41,7 @@ class OrderService
         return Order::create($data);
     }
 
-    public function updateMenu(Order $menu, array $data)
+    public function updateOrder(Order $menu, array $data)
     {
         $menu->update($data);
         return $menu;

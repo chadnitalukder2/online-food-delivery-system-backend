@@ -27,9 +27,9 @@ class OrdersRequest extends FormRequest
             'restaurant_id' => 'sometimes|exists:restaurants,id',
             'menu_id' => 'sometimes|exists:menus,id',
             'total_amount' => 'sometimes|numeric|min:0',
-            'status' => 'nullable|string|in:pending,completed,canceled',
+            'status' => 'sometimes|string|in:pending,completed,canceled',
             'payment_method' => 'sometimes|in:cash,card,paypal',
-            'order_date' => 'nullable|date',
+            'order_date' => 'sometimes|date',
             'delivery_address' => 'sometimes|string|max:255',
         ];
 

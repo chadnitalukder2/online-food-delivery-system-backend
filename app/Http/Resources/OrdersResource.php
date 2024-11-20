@@ -19,7 +19,6 @@ class OrdersResource extends JsonResource
             'user_id' => $this->user_id,
             'restaurant_id' => $this->restaurant_id,
             'menu_id' => $this->menu_id,
-            'name' => $this->name,
             'total_amount' => $this->total_amount,
             'status' => $this->status,
             'payment_method' => $this->payment_method,

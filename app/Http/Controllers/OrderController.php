@@ -37,6 +37,12 @@ class OrderController extends Controller
         $order = $this->OrderService->createOrder($request->validated());
         return new OrdersResource($order);
     }
-    
+
+    public function update(OrdersRequest $request, $id)
+    {
+        $menu = $this->OrderService->getOrderById($id);
+        $updatedOrder = $this->OrderService->updateOrder($menu, $request->validated());
+        return new OrdersResource($updatedOrder);
+    }
 
 }
