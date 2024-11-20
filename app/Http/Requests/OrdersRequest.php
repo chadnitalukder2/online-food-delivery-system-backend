@@ -11,7 +11,7 @@ class OrdersRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,27 @@ class OrdersRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+ 
+        $rules = [
+            'user_id' => 'sometimes|exists:users,id', 
+            'restaurant_id' => 'sometimes|exists:restaurants,id',
+            'total_amount' => 'sometimes|numeric|min:0',
+            'status' => 'nullable|string|in:pending,completed,canceled',
+            'payment_method' => 'sometimes|in:cash,card,paypal',
+            'order_date' => 'nullable|date',
+            'delivery_address' => 'sometimes|string|max:255',
         ];
+
+        // if ($this->isMethod('POST')) {
+        //     $rules['user_id'] = 'required|exists:users,id';
+        //     $rules['restaurant_id'] = 'required|exists:restaurants,id';
+        //     $rules['total_amount'] = 'required|numeric|min:0';
+        //     $rules['status'] = 'required|string|in:pending,completed,canceled';
+        //     $rules['payment_method'] = 'required|in:cash,card,paypal';
+        //     $rules['order_date'] = 'required|date';
+        //     $rules['delivery_address'] = 'required|string|max:255';
+        // }
+
+        return $rules;
     }
 }

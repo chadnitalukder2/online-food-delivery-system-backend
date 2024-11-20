@@ -15,7 +15,7 @@ class OrderCollection extends Collection
        
         return [
             'Orders' => $this->collection,
-            'menu_meta' => [
+            'order_meta' => [
                 // 'total' => $this->total(),
                 'count' => $this->count(),
                 // 'current_page' => $this->currentPage(),

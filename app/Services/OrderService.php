@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Category;
-use App\Models\Menu;
 use App\Models\Order;
 use GuzzleHttp\Psr7\Request;
 
@@ -33,17 +31,17 @@ class OrderService
         return $query->get();
     }
 
-    public function getMenuById($id)
+    public function getOrderById($id)
     {
-        return Menu::findOrFail($id);
+        return Order::findOrFail($id);
     }
 
     public function createMenu(array $data)
     {
-        return Menu::create($data);
+        return Order::create($data);
     }
 
-    public function updateMenu(Menu $menu, array $data)
+    public function updateMenu(Order $menu, array $data)
     {
         $menu->update($data);
         return $menu;

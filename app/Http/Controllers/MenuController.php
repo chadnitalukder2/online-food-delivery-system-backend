@@ -31,10 +31,8 @@ class MenuController extends Controller
         return new MenusResource($menu);
     }
 
-    public function store()
+    public function store(MenusRequest $request)
     {
-        $request = new MenusRequest();
-        dd($request);
         $menu = $this->menuService->createMenu($request->validated());
         return new MenusResource($menu);
     }

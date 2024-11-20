@@ -14,6 +14,19 @@ class OrdersResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'user_id' => $this->user_id,
+            'restaurant_id' => $this->restaurant_id,
+            'name' => $this->name,
+            'total_amount' => $this->total_amount,
+            'status' => $this->status,
+            'payment_method' => $this->payment_method,
+            'order_date' => $this->order_date,
+            'delivery_address' => $this->delivery_address,
+            'restaurant_name' => $this->restaurant->name,
+            'created_at' => $this->created_at->toDateTimeString(),
+            'updated_at' => $this->updated_at->toDateTimeString(),
+        ];
     }
 }
