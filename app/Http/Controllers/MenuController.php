@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collections\MenusCollection;
+use App\Http\Requests\MenusRequest;
 use App\Http\Resources\MenusResource;
 use App\Services\MenusService;
 use Illuminate\Http\Request;
@@ -29,5 +30,13 @@ class MenuController extends Controller
         $menu = $this->menuService->getMenuById($id);
         return new MenusResource($menu);
     }
+
+    public function store(MenusRequest $request)
+    {
+        dd('hello');
+        $menu = $this->menuService->createMenu($request->validated());
+        return new MenusResource($menu);
+    }
+
 
 }
