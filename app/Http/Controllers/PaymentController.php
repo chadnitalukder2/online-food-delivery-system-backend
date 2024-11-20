@@ -38,6 +38,12 @@ class PaymentController extends Controller
         return new PaymentsResource($updatedPayment);
     }
 
+    public function destroy($id){
+        $payment = $this->PaymentService->getPaymentById($id);
+        $this->PaymentService->deletePayment($payment);
+        return response()->json(null, 204);
+    }
+
 
 
 }

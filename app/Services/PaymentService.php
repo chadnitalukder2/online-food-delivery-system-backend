@@ -43,7 +43,7 @@ class PaymentService
         return $payment;
     }
 
-    public function deleteMenu(Payment $payment)
+    public function deletePayment(Payment $payment)
     {
         $payment->delete();
     }
