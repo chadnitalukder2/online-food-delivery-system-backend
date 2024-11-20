@@ -37,4 +37,10 @@ class MenusService
     {
         return Menu::create($data);
     }
+
+    public function updateMenu(Menu $menu, array $data)
+    {
+        $menu->update($data);
+        return $menu;
+    }
 }
