@@ -4,26 +4,26 @@ namespace App\Services;
 
 use App\Models\Category;
 use App\Models\Menu;
+use App\Models\Payment;
 use GuzzleHttp\Psr7\Request;
 
 class PaymentService
 {
     // Get all menus with optional filtering and pagination
-    public function getFilteredMenus(array $filters, $perPage = 10)
+    public function getFilteredPayment(array $filters, $perPage = 10)
     {
-        $query = Menu::query();
+        $query = Payment::query();
 
-        if (isset($filters['availability'])) {
-            $query->where('availability', $filters['availability']);
+        if (isset($filters['amount'])) {
+            $query->where('amount', $filters['amount']);
         }
-
-        if (isset($filters['restaurant_id'])) {
-            $query->where('restaurant_id', $filters['restaurant_id']);
+        if (isset($filters['payment_method'])) {
+            $query->where('payment_method', $filters['payment_method']);
         }
-
-        if (isset($filters['price_min']) && isset($filters['price_max'])) {
-            $query->whereBetween('price', [$filters['price_min'], $filters['price_max']]);
+        if (isset($filters['status'])) {
+            $query->where('status', $filters['status']);
         }
+       
 
         return $query->get();
     }
