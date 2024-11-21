@@ -11,7 +11,7 @@ class DeliveriesRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,22 @@ class DeliveriesRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+         // Common rules for both store and update
+         $rules = [
+            'order_id' => 'sometimes|exists:orders,id',  // Optional for update
+            'delivery_personnel_id' => 'sometimes|exists:delivery_personnels,id',
+            'estimated_time' => 'sometimes|numeric|min:0',
+            'status' => 'sometimes|in:pending,on the way,delivered,failed',
         ];
+   
+        // Adjust required rules for POST (store operation)
+        if ($this->isMethod('POST')) {
+            $rules['order_id'] = 'required|exists:orders,id';
+            $rules['delivery_personnel_id'] = 'required|exists:delivery_personnels,id';
+            $rules['estimated_time'] = 'required|numeric|min:0';
+            $rules['status'] = 'required|in:pending,on the way,delivered,failed';
+        }
+     
+        return $rules;
     }
 }
