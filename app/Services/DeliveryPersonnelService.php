@@ -21,24 +21,24 @@ class DeliveryPersonnelService
         return $query->get();
     }
 
-    public function getMenuById($id)
+    public function getPersonById($id)
     {
-        return Menu::findOrFail($id);
+        return DeliveryPersonnel::findOrFail($id);
     }
 
-    public function createMenu(array $data)
+    public function createPerson(array $data)
     {
-        return Menu::create($data);
+        return DeliveryPersonnel::create($data);
     }
 
-    public function updateMenu(Menu $menu, array $data)
+    public function updatePerson(DeliveryPersonnel $person, array $data)
     {
-        $menu->update($data);
-        return $menu;
+        $person->update($data);
+        return $person;
     }
 
-    public function deleteMenu(Menu $menu)
+    public function deletePerson(DeliveryPersonnel $person)
     {
-        $menu->delete();
+        $person->delete();
     }
 }
