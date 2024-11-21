@@ -11,7 +11,7 @@ class OrderTrackingsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,21 @@ class OrderTrackingsRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+
+        $rules = [
+            'order_id' => 'sometimes|exists:orders,id',
+            'current_status' => 'sometimes|in:pending, processing,shipped,delivered,cancelled',
+            'status_update_time' => 'sometimes|date',
+            'estimated_delivery_time' => 'sometimes|date',
         ];
+
+        if ($this->isMethod('POST')) {
+            $rules['order_id'] = 'required|exists:orders,id';
+            $rules['current_status'] = 'required|in:pending, processing,shipped,delivered,cancelled';
+            $rules['status_update_time'] = 'required|date';
+            $rules['estimated_delivery_time'] = 'required|date';
+        }
+
+        return $rules;
     }
 }
