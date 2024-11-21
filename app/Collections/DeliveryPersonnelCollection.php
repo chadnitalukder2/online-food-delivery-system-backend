@@ -3,7 +3,7 @@
 namespace App\Collections;
 use Illuminate\Support\Collection;
 
-class DeliveryPersonnel extends Collection
+class DeliveryPersonnelCollection extends Collection
 {
  /**
      * Transform the resource collection into an array.
@@ -14,8 +14,8 @@ class DeliveryPersonnel extends Collection
     {
        
         return [
-            'MENUS' => $this->collection,
-            'menu_meta' => [
+            'Person' => $this->collection,
+            'person_meta' => [
                 // 'total' => $this->total(),
                 'count' => $this->count(),
                 // 'current_page' => $this->currentPage(),
