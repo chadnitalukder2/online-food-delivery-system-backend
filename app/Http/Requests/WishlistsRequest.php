@@ -11,7 +11,7 @@ class WishlistsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,18 @@ class WishlistsRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+        $rules = [
+            'user_id' => 'sometimes|exists:users,id', 
+            'restaurant_id' => 'sometimes|exists:restaurants,id',
+            'menu_id' => 'sometimes|exists:menus,id',
         ];
+
+        if ($this->isMethod('POST')) {
+            $rules['user_id'] = 'required|exists:users,id';
+            $rules['restaurant_id'] = 'required|exists:restaurants,id';
+            $rules['menu_id'] = 'required|exists:menus,id';
+        }
+
+        return $rules;
     }
 }
