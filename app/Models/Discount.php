@@ -10,4 +10,9 @@ class Discount extends Model
     /** @use HasFactory<\Database\Factories\DiscountFactory> */
     use HasFactory;
     protected $guarded = [];
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
 }

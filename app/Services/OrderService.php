@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\Request;
 
 class OrderService
 {
-    // Get all menus with optional filtering and pagination
+    // Get all orders with optional filtering and pagination
     public function getFilteredOrder(array $filters, $perPage = 10)
     {
         $query = Order::query();
@@ -41,10 +41,10 @@ class OrderService
         return Order::create($data);
     }
 
-    public function updateOrder(Order $menu, array $data)
+    public function updateOrder(Order $order, array $data)
     {
-        $menu->update($data);
-        return $menu;
+        $order->update($data);
+        return $order;
     }
 
     public function deleteOrder(Order $order)
