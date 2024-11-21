@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('rating');
             $table->string('comment');
             $table->timestamps();
+
+            $table->index([ 'rating']);
         });
     }
 

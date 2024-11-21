@@ -11,7 +11,7 @@ class ReviewsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,20 @@ class ReviewsRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+        $rules = [
+            'user_id' => 'sometimes|exists:users,id', 
+            'restaurant_id' => 'sometimes|exists:restaurants,id',
+            'rating' => 'sometimes|string',
+            'comment' => 'sometimes|string',
         ];
+
+        if ($this->isMethod('POST')) {
+            $rules['user_id'] = 'required|exists:users,id';
+            $rules['restaurant_id'] = 'required|exists:restaurants,id';
+            $rules['comment'] = 'required|string';
+            $rules['total_amount'] = 'required|string';
+        }
+
+        return $rules;
     }
 }
